@@ -1,0 +1,42 @@
+NRF Module Odroid Connections 
+
+
+ODROID - ODROID PIN FUNCTION - NRF PIN FUNCTION - NRF
+Pin 17 - 3.3V Power (Odroid) - Vcc of NRF       - 1,left
+Pin 19 - MOSI       (Odroid) - MOSI of NRF      - 3,left
+Pin 21 - MISO       (Odroid) - MISO of NRF      - 4,right
+Pin 23 - SCLK       (Odroid) - SCK of NRF       - 3,right
+Pin 20 - Ground     (Odroid) - GND of NRF       - 1,right
+Pin 24 - SSO        (Odroid) - CE of NRF        - 2,right 
+Pin 26 - GPIO_4     (Odroid) - CSN of NRF       - 2,left
+
+NRF Module Arduino Connections 
+
+
+ARDUINO - ARDUINO PIN FUNCTION  - NRF PIN FUNCTION - NRF
+Pin 3.3V - 3.3V Power (Arduino) - Vcc of NRF       - 1,left
+Pin 11 - MOSI         (Arduino) - MOSI of NRF      - 3,left
+Pin 12 - MISO         (Arduino) - MISO of NRF      - 4,right
+Pin 13 - SCK          (Arduino) - SCK of NRF       - 3,right
+Pin GND - Ground      (Arduino) - GND of NRF       - 1,right
+Pin 10 - SS           (Arduino) - CE of NRF        - 2,right 
+#Pin 26 - GPIO_4      (Arduino) - CSN of NRF       - 2,left
+
+
+NRF Module Odroid Connections - From video
+(apparently csn is the chip select)
+
+ODROID - ODROID PIN FUNCTION - NRF PIN FUNCTION - NRF
+Pin 17 - 3.3V Power (Odroid) - Vcc of NRF       - 1,left
+Pin 19 - MOSI       (Odroid) - MOSI of NRF      - 3,left
+Pin 21 - MISO       (Odroid) - MISO of NRF      - 4,right
+Pin 23 - SCLK       (Odroid) - SCK of NRF       - 3,right
+Pin 20 - Ground     (Odroid) - GND of NRF       - 1,right
+Pin 24 - SSO        (Odroid) - CSN of NRF       - 2,left
+Pin 26 - GPIO_4     (Odroid) - CE of NRF        - 2,right
+
+wpi.wiringPiSetup()
+wpi.pinMode(0,1)  0-pin number, 1-output
+wpi.digitalWrite(pin,value) - wiringpi pin 
+26       | P/D   | 1  | 0 | IN   | GPIO.464 | 11  |  464
+Physical | PU/PD | DS | V | Mode |   Name   | wPi | GPIO 

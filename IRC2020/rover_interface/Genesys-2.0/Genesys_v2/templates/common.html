@@ -1,0 +1,146 @@
+{% extends "base.html" %}
+
+{% block common_body %}
+<!-- Cam Feed and Values -->
+<div class="row">
+    <!-- Camera Feed -->
+    <div class={% block feed_col %}{% endblock feed_col %} style="background-color:powderblue;">
+        <div class="input-group mb-3 mt-1">
+            <div class="input-group-prepend">
+                <label class="input-group-text" for="cameraNumber">Camera Feed</label>
+            </div>
+            <select class="custom-select" id="cameraNumber">
+                <option selected value="1">One</option>
+                <option value="2">Two</option>
+                <option value="3">Three</option>
+                <option value="4">Four</option>
+            </select>
+        </div>
+        <img src="{{url_for('video_feed')}}" class="img-fluid rounded mx-auto d-block mb-2" alt="static/images/Technocrats_Robotics_v2.png">
+    </div>
+    <!-- End of Camera Feed -->
+
+    <!-- Force next columns to break to new line -->
+    <!-- <div class="w-100"></div> -->
+
+    {% block soil_values %}{% endblock soil_values %}
+    <!-- Electrical Values -->
+    <div class="col-3">
+        <div class="row">
+            <div class="col">
+                <table class="table table-bordered table-striped">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th colspan="2" scope="col">Electrical Values</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">
+                                <div class="custom-control custom-switch">
+                                    <input type="checkbox" class="custom-control-input" id="swtBattery1">
+                                    <label class="custom-control-label" for="swtBattery1">Battery 1</label>
+                                </div>
+                            </th>
+                            <td><span id="battery1">24.9</span> V</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">
+                                <div class="custom-control custom-switch">
+                                    <input type="checkbox" class="custom-control-input" id="swtBattery2">
+                                    <label class="custom-control-label" for="swtBattery2">Battery 2</label>
+                                </div>
+                            </th>
+                            <td><span id="battery2">24</span> V</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">
+                                <div class="custom-control custom-switch">
+                                    <input type="checkbox" class="custom-control-input" id="swtMotor1">
+                                    <label class="custom-control-label" for="swtMotor1">Motor 1</label>
+                                </div>
+                            </th>
+                            <td><span id="motor1">5</span> A</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">
+                                <div class="custom-control custom-switch">
+                                    <input type="checkbox" class="custom-control-input" id="swtMotor2">
+                                    <label class="custom-control-label" for="swtMotor2">Motor 2</label>
+                                </div>
+                            </th>
+                            <td><span id="motor2">5</span> A</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">
+                                <div class="custom-control custom-switch">
+                                    <input type="checkbox" class="custom-control-input" id="swtMotor3">
+                                    <label class="custom-control-label" for="swtMotor3">Motor 3</label>
+                                </div>
+                            </th>
+                            <td><span id="motor3">5</span> A</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">
+                                <div class="custom-control custom-switch">
+                                    <input type="checkbox" class="custom-control-input" id="swtMotor4">
+                                    <label class="custom-control-label" for="swtMotor4">Motor 4</label>
+                                </div>
+                            </th>
+                            <td><span id="motor4">5</span> A</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">
+                                <div class="custom-control custom-switch">
+                                    <input type="checkbox" class="custom-control-input" id="swtMotor5">
+                                    <label class="custom-control-label" for="swtMotor5">Motor 5</label>
+                                </div>
+                            </th>
+                            <td><span id="motor5">5</span> A</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">
+                                <div class="custom-control custom-switch">
+                                    <input type="checkbox" class="custom-control-input" id="swtMotor6">
+                                    <label class="custom-control-label" for="swtMotor6">Motor 6</label>
+                                </div>
+                            </th>
+                            <td><span id="motor6">5</span> A</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        {% block Detection_status %}{% endblock Detection_status %}
+    </div>
+    <!--  End of Electrical Values -->
+</div>
+<!-- End of Feed and Values -->
+
+<!-- GPS values -->
+<div class="row my-2">
+    <div class="col">
+        <table class="table table-bordered table-striped">
+            <thead class="thead-dark">
+                <tr>
+                    <th colspan="2" scope="col">GPS Values</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">Current Location</th>
+                    <td id="currentGPS">41°24'12.2"N 2°10'26.5"E</td>
+                </tr>
+                {% block addGPS %}{% endblock addGPS %}
+            </tbody>
+        </table>
+    </div>
+    {% block listOfLocations %}{% endblock listOfLocations %}
+</div>
+<!-- End of GPS values -->
+{% endblock common_body %}
+
+{% block javascripts %}
+<script src="static/js/common.js"></script>
+{% block extra_javascripts %}{% endblock extra_javascripts %}
+{% endblock javascripts %}

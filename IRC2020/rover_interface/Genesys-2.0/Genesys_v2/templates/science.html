@@ -1,0 +1,111 @@
+{% extends "common.html" %}
+
+{% block title %}
+ - Science
+{% endblock title %}
+
+{% block feed_col %}"col-auto"{% endblock feed_col %}
+
+{% block soil_values %}
+<div class="col-4">
+    <table class="table table-bordered gpsTable table-striped">
+        <thead class="thead-dark">
+            <tr>
+                <th colspan="2" scope="col">Sensor Values</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th>
+                    <div class="custom-control custom-switch">
+                        <input type="checkbox" class="custom-control-input" id="swtatmPressure">
+                        <label class="custom-control-label" for="swtatmPressure">Atmospheric Pressure</label>
+                    </div>
+                </th>
+                <td><span id="atmPressure">1004.79</span> hPa</td>
+            </tr>
+            <tr>
+                <th>
+                    <div class="custom-control custom-switch">
+                        <input type="checkbox" class="custom-control-input" id="swtatmTemp">
+                        <label class="custom-control-label" for="swtatmTemp">Atmospheric Temperature</label>
+                    </div>
+                <td><span id="atmTemp">29.99</span> &#8451;</td>
+            </tr>
+            <tr>
+                <th>
+                    <div class="custom-control custom-switch">
+                        <input type="checkbox" class="custom-control-input" id="swtatmHum">
+                        <label class="custom-control-label" for="swtatmHum">Atmospheric Humidity</label>
+                    </div>
+                </th>
+                <td><span id="atmHum">59.99</span> %</td>
+            </tr>
+            <tr>
+                <th>
+                    <div class="custom-control custom-switch">
+                        <input type="checkbox" class="custom-control-input" id="swtCH4">
+                        <label class="custom-control-label" for="swtCH4">Methane Concentration</label>
+                    </div>
+                </th>
+                <td><span id="CH4">1.854</span> ppm</td>
+            </tr>
+            <tr>
+                <th>
+                    <div class="custom-control custom-switch">
+                        <input type="checkbox" class="custom-control-input" id="swtUV">
+                        <label class="custom-control-label" for="swtUV">UV Index</label>
+                    </div>
+                </th>
+                <td><span id="UV">3</span></td>
+            </tr>
+            <tr>
+                <th>
+                    <div class="custom-control custom-switch">
+                        <input type="checkbox" class="custom-control-input" id="swtsoilTemp">
+                        <label class="custom-control-label" for="swtsoilTemp">Soil Temperature</label>
+                    </div>
+                </th>
+                <td><span id="soilTemp">29.99</span> &#8451;</td>
+            </tr>
+            <tr>
+                <th>
+                    <div class="custom-control custom-switch">
+                        <input type="checkbox" class="custom-control-input" id="swtsoilpH">
+                        <label class="custom-control-label" for="swtsoilpH">Soil pH</label>
+                    </div>
+                </th>
+                <td><span id="soilpH">7</span> pH</td>
+            </tr>
+            <tr>
+                <th>
+                    <div class="custom-control custom-switch">
+                        <input type="checkbox" class="custom-control-input" id="swtsoilMoisture">
+                        <label class="custom-control-label" for="swtsoilMoisture">Soil Moisture</label>
+                    </div>
+                </th>
+                <td><span id="soilMoisture">58.88</span> %</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+{% endblock soil_values %}
+
+{% block extra_body_bottom %}
+<div class="row my-2">
+    <div class="col mr-1 border border-success my-auto">
+        <p><b>Base Motors Status</b></p>
+        <div class="p-3 mb-2 rounded bg-primary text-center text-white" id="BaseStatus">Idle</div>
+    </div>
+    <div class="col ml-1 border border-success my-auto">
+        <p><b>Hot Keys</b></p>
+        {% for i in range(10) %}
+        <button type="button" class="btn btn-danger mb-2 p-3" id="btnHotKeys{{i}}">{{i}}</button>
+        {% endfor %}
+    </div>
+</div>
+{% endblock extra_body_bottom %}
+
+{% block extra_javascripts %}
+<script src="static/js/science.js"></script>
+{% endblock extra_javascripts %}
