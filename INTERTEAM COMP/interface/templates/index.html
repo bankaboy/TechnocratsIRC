@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Interface</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" media="screen" href="/static/css/bootstrap.css">
+  <link rel="stylesheet" type="text/css" media="screen" href="/static/css/style.css">
+  
+</head>
+
+<body>
+  <div class="container">
+
+    <h1>Control Interface</h1>
+    <hr>
+
+    <!-- Arduino Selection -->
+    <div class="arduinoSelection">
+      <div class="row">
+        <div class="col-12">
+          <h3 class="text-secondary">Select Aruduino:</h3>
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text">Motor Arduino</span>
+            </div>
+            <select id="arduinoSelectMotor" class="form-control">
+              {% for i in options:%}
+              <option value='{{i}}'>{{i}}</option>
+              {%endfor%}
+            </select>
+            <div class="input-group-append">
+              <div class="btn btn-outline-success" onclick="testArduino('base')">Test</div>
+            </div>
+          </div>
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text">Arm Arduino</span>
+            </div>
+            <select id="arduinoSelectMotor" class="form-control">
+              {% for i in options:%}
+              <option value='{{i}}'>{{i}}</option>
+              {%endfor%}
+            </select>
+            <div class="input-group-append">
+              <div class="btn btn-outline-success" onclick="testArduino('arm')">Test</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-6">
+        </div>
+        <div class="col-6"></div>
+      </div>
+    </div>
+  </div>
+    
+  <br>
+  
+  <center>
+     <!--Live stream feed-->
+    <iframe src='http://192.168.0.155:8000' width="552" height="417" ></iframe>
+  </center>
+  
+  <div class="container">
+    <!-- Motor Control Section -->
+    <div class="motorControls mt-4">
+      <div class="motorRPM row">
+        <div class="col-4">
+          <label for="motorSpeedSelect">Select RPM of Motor:</label>
+          <select id="motorSpeedSelect" onfocus="controlFocus('on')" class="form-control">
+            <option value="0">0</option>
+            <option value="20">20</option>
+            <option value="50">50</option>
+            <option value="100">100</option>
+            <option value="150">150</option>
+            <option value="200">200</option>
+            <option value="255">255</option>
+          </select>
+          <div tabindex='-1' class="motorControlBox mt-4" id="motorControlBox" onfocus="controlFocus('on')" onfocusout='controlFocus("off")'>
+            <div class="controlCenter"><h3 class="text-secondary" id="motorStatus">Stopped!</h3></div>
+          </div>
+          <h4 class="text-center mt-4"><a href="#">Controls</a></h4>
+        </div>
+      </div>
+    </div>
+
+    <div id="errorDiv"></div>
+    
+  </div>
+
+
+	<!-- Scripts -->
+	<script src="/static/lib/jquery.min.js"></script>
+  <script src="/static/js/bootstrap.js"></script>
+  <script src="/static/js/controlFocus.js"></script>
+	<script src="/static/js/motorEvents.js"></script>
+</body>
+
+</html>
